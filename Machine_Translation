@@ -2,7 +2,7 @@ import speech_recognition as sr
 import pyaudio
 from googletrans import Translator
 import os
-from gtts import gTTS
+from textblob import TextBlob
 
 r = sr.Recognizer()
 
