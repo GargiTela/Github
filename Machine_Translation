@@ -11,14 +11,16 @@ with sr.Microphone() as source:
      print("Here is the audio input. speak: ")                                      #audio input is taken
      audio = r.listen(source)
      print("Input is captured. Wait!")                                              #microphone captured the input
-text1 = r.recognize_google(audio, language = 'hi-IN')
+text1 = r.recognize_google(audio, language = 'en')
 print(text)
 print(r.recognize_google(audio))                                                    # text file of speech is created
 
 #translating the created text file into another language 
-text_trans = Translator()
-text2 = text_trans.translate(text1, src='hi', dest='en')                            # text is translated from hindi to english
-print(text2.text1)
+blob = TextBlob(text1)
+text2 = blob.correct()
+print(text2)                                                                        #text with no spelling mistake.
+text3 =text2.translate(to ='hi')                                                    # text is translated from english to hindi
+print(text3)
 
 #converting the translated text in an audio form
 language = 'en'
