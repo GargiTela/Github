@@ -1,6 +1,5 @@
 import speech_recognition as sr
 import pyaudio
-from googletrans import Translator
 import os
 from textblob import TextBlob
 
