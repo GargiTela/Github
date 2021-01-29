@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import pyaudio
-from googletrans import Translator
+import goslate
 import os
 from gtts import gTTS
 
@@ -8,19 +8,19 @@ r = sr.Recognizer()
 
 #creating a text file of an audio file
 with sr.Microphone() as source:
-     print("Here is the audio input. speak: ")                                      #audio input is taken
+     print("Here is the audio input. speak: ")                                                   #audio input is taken
      audio = r.listen(source)
-     print("Input is captured. Wait!")                                              #microphone captured the input
+     print("Input is captured. Wait!")                                                           #microphone captured the input
 text1 = r.recognize_google(audio, language = 'hi-IN')
 print(text)
-print(r.recognize_google(audio))                                                    # text file of speech is created
+print(r.recognize_google(audio))                                                                 # text file of speech is created
 
 #translating the created text file into another language 
-text_trans = Translator()
-text2 = text_trans.translate(text1, src='hi', dest='en')                            # text is translated from hindi to english
-print(text2.text1)
+gs = goslate.Goslate()
+translated_text = gs.translate(text1,'hi')                                                       # text is translated from hindi to english
+print(translated_text)
 
 #converting the translated text in an audio form
 language = 'en'
-result = gTTS(text = text2, lang = language, slow = false).save(result_audio.wav)   # translated text in converted into .wav file
-os.system('start result_audio')
+result = gTTS(text = translated_text, lang = language, slow = false).save(translated_text.wav)   # translated text in converted into .wav file
+os.system('start translated_text')
